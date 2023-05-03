@@ -1,6 +1,5 @@
 import 'package:flutter/widgets.dart';
 import 'package:platform_convert_app_code/Models/Theme_Model.dart';
-import 'package:platform_convert_app_code/utills/All_Atributes.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Theme_Provider extends ChangeNotifier {

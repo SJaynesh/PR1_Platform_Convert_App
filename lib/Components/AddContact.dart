@@ -22,8 +22,6 @@ class AddContacts extends StatefulWidget {
 class _AddContactsState extends State<AddContacts> {
   GlobalKey<FormState> FormKey = GlobalKey<FormState>();
 
-
-
   @override
   Widget build(BuildContext context) {
     Size s = MediaQuery.of(context).size;
@@ -175,9 +173,7 @@ class _AddContactsState extends State<AddContacts> {
                     placeholderStyle: TextStyle(
                       color: CupertinoColors.placeholderText,
                     ),
-                    style: TextStyle(
-                      color: CupertinoColors.placeholderText
-                    ),
+                    style: TextStyle(color: CupertinoColors.placeholderText),
                     onSaved: (val) {
                       fullName = val;
                       print(val);
@@ -192,7 +188,6 @@ class _AddContactsState extends State<AddContacts> {
                     padding: EdgeInsets.only(left: 20, right: 20),
                     placeholder: "Name",
                     decoration: BoxDecoration(
-
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(
                         style: BorderStyle.solid,
@@ -218,9 +213,7 @@ class _AddContactsState extends State<AddContacts> {
                     placeholderStyle: TextStyle(
                       color: CupertinoColors.placeholderText,
                     ),
-                    style: TextStyle(
-                        color: CupertinoColors.placeholderText
-                    ),
+                    style: TextStyle(color: CupertinoColors.placeholderText),
                     onSaved: (val) {
                       phoneNumber = val;
                       print(val);
@@ -255,9 +248,7 @@ class _AddContactsState extends State<AddContacts> {
                     placeholderStyle: TextStyle(
                       color: CupertinoColors.placeholderText,
                     ),
-                    style: TextStyle(
-                        color: CupertinoColors.placeholderText
-                    ),
+                    style: TextStyle(color: CupertinoColors.placeholderText),
                     onSaved: (val) {
                       chat = val;
                       print(val);
@@ -380,46 +371,46 @@ class _AddContactsState extends State<AddContacts> {
                         ),
                         (PeriodName == null)
                             ? Text(
-                          "Pick Time",
-                          style: TextStyle(
-                              color: (Provider.of<Theme_Provider>(context)
-                                  .m1
-                                  .isDark)
-                                  ? CupertinoColors.white
-                                  : CupertinoColors.black),
-                        )
+                                "Pick Time",
+                                style: TextStyle(
+                                    color: (Provider.of<Theme_Provider>(context)
+                                            .m1
+                                            .isDark)
+                                        ? CupertinoColors.white
+                                        : CupertinoColors.black),
+                              )
                             : (PeriodName == "AM")
-                            ? Text(
-                          "${InitialTime.hour} : ${InitialTime.minute} $PeriodName",
-                          style: TextStyle(
-                              color: (Provider.of<Theme_Provider>(
-                                  context)
-                                  .m1
-                                  .isDark)
-                                  ? CupertinoColors.white
-                                  : CupertinoColors.black),
-                        )
-                            : (InitialTime.hour > 12)
-                            ? Text(
-                          "${InitialTime.hour - 12} : ${InitialTime.minute} $PeriodName",
-                          style: TextStyle(
-                              color: (Provider.of<Theme_Provider>(
-                                  context)
-                                  .m1
-                                  .isDark)
-                                  ? CupertinoColors.white
-                                  : CupertinoColors.black),
-                        )
-                            : Text(
-                          "${InitialTime.hour} : ${InitialTime.minute} $PeriodName",
-                          style: TextStyle(
-                              color: (Provider.of<Theme_Provider>(
-                                  context)
-                                  .m1
-                                  .isDark)
-                                  ? CupertinoColors.white
-                                  : CupertinoColors.black),
-                        ),
+                                ? Text(
+                                    "${InitialTime.hour} : ${InitialTime.minute} $PeriodName",
+                                    style: TextStyle(
+                                        color: (Provider.of<Theme_Provider>(
+                                                    context)
+                                                .m1
+                                                .isDark)
+                                            ? CupertinoColors.white
+                                            : CupertinoColors.black),
+                                  )
+                                : (InitialTime.hour > 12)
+                                    ? Text(
+                                        "${InitialTime.hour - 12} : ${InitialTime.minute} $PeriodName",
+                                        style: TextStyle(
+                                            color: (Provider.of<Theme_Provider>(
+                                                        context)
+                                                    .m1
+                                                    .isDark)
+                                                ? CupertinoColors.white
+                                                : CupertinoColors.black),
+                                      )
+                                    : Text(
+                                        "${InitialTime.hour} : ${InitialTime.minute} $PeriodName",
+                                        style: TextStyle(
+                                            color: (Provider.of<Theme_Provider>(
+                                                        context)
+                                                    .m1
+                                                    .isDark)
+                                                ? CupertinoColors.white
+                                                : CupertinoColors.black),
+                                      ),
                       ],
                     ),
                   ),
@@ -435,7 +426,9 @@ class _AddContactsState extends State<AddContacts> {
                     onPressed: () {
                       if (FormKey.currentState!.validate()) {
                         FormKey.currentState!.save();
-                        Provider.of<AddPageValue_Provider>(context,listen: false).SaveValueAddPage();
+                        Provider.of<AddPageValue_Provider>(context,
+                                listen: false)
+                            .SaveValueAddPage();
 
                         FullNameController.clear();
                         PhoneNumberController.clear();
@@ -443,11 +436,11 @@ class _AddContactsState extends State<AddContacts> {
                         PickedDate = null;
                         PeriodName = null;
                         time = null;
-                        Provider.of<AddImage_Provider>(context,listen: false).ClearImage();
+                        Provider.of<AddImage_Provider>(context, listen: false)
+                            .ClearImage();
                       }
                     },
                   ),
-
                 ],
               ),
             ),
@@ -567,18 +560,6 @@ class _AddContactsState extends State<AddContacts> {
                                       child: ListTile(
                                         trailing: ElevatedButton(
                                           onPressed: () {
-                                            // ImagePicker picker =
-                                            //     ImagePicker();
-                                            // XFile? xFile =
-                                            //     await picker.pickImage(
-                                            //         source:
-                                            //             ImageSource.camera);
-                                            //
-                                            // String path = xFile!.path;
-                                            //
-                                            // setState(() {
-                                            //   image = File(path);
-                                            // });
                                             Provider.of<AddImage_Provider>(
                                                     context,
                                                     listen: false)
@@ -596,19 +577,6 @@ class _AddContactsState extends State<AddContacts> {
                                       child: ListTile(
                                         trailing: ElevatedButton(
                                           onPressed: () {
-                                            // ImagePicker picker =
-                                            //     ImagePicker();
-                                            // XFile? xFile =
-                                            //     await picker.pickImage(
-                                            //         source:
-                                            //             ImageSource
-                                            //                 .gallery);
-                                            //
-                                            // String path = xFile!.path;
-                                            //
-                                            // setState(() {
-                                            //   image = File(path);
-                                            // });
                                             Provider.of<AddImage_Provider>(
                                                     context,
                                                     listen: false)
@@ -822,7 +790,6 @@ class _AddContactsState extends State<AddContacts> {
                       children: [
                         IconButton(
                           onPressed: () async {
-
                             DateTime? date = await showDatePicker(
                               context: context,
                               initialDate: Date,
@@ -884,7 +851,7 @@ class _AddContactsState extends State<AddContacts> {
                       children: [
                         IconButton(
                           onPressed: () async {
-                             time = await showTimePicker(
+                            time = await showTimePicker(
                               context: context,
                               initialTime: Time,
                             );
@@ -916,7 +883,9 @@ class _AddContactsState extends State<AddContacts> {
                       onPressed: () {
                         if (FormKey.currentState!.validate()) {
                           FormKey.currentState!.save();
-                          Provider.of<AddPageValue_Provider>(context,listen: false).SaveValueAddPage();
+                          Provider.of<AddPageValue_Provider>(context,
+                                  listen: false)
+                              .SaveValueAddPage();
 
                           FullNameController.clear();
                           PhoneNumberController.clear();
@@ -924,17 +893,45 @@ class _AddContactsState extends State<AddContacts> {
                           PickedDate = null;
                           time = null;
                           PeriodName = null;
-                          Provider.of<AddImage_Provider>(context,listen: false).ClearImage();
+                          Provider.of<AddImage_Provider>(context, listen: false)
+                              .ClearImage();
 
-                          print(Provider.of<AddPageValue_Provider>(context,listen: false).M1.FullName);
-                          print(Provider.of<AddPageValue_Provider>(context,listen: false).M1.PhoneNumber);
-                          print(Provider.of<AddPageValue_Provider>(context,listen: false).M1.Chats);
-                          print(Provider.of<AddPageValue_Provider>(context,listen: false).M1.Dates);
-                          print(Provider.of<AddPageValue_Provider>(context,listen: false).M1.Months);
-                          print(Provider.of<AddPageValue_Provider>(context,listen: false).M1.Years);
-                          print(Provider.of<AddPageValue_Provider>(context,listen: false).M1.Hours);
-                          print(Provider.of<AddPageValue_Provider>(context,listen: false).M1.Minits);
-                          print(Provider.of<AddPageValue_Provider>(context,listen: false).M1.Images);
+                          print(Provider.of<AddPageValue_Provider>(context,
+                                  listen: false)
+                              .M1
+                              .FullName);
+                          print(Provider.of<AddPageValue_Provider>(context,
+                                  listen: false)
+                              .M1
+                              .PhoneNumber);
+                          print(Provider.of<AddPageValue_Provider>(context,
+                                  listen: false)
+                              .M1
+                              .Chats);
+                          print(Provider.of<AddPageValue_Provider>(context,
+                                  listen: false)
+                              .M1
+                              .Dates);
+                          print(Provider.of<AddPageValue_Provider>(context,
+                                  listen: false)
+                              .M1
+                              .Months);
+                          print(Provider.of<AddPageValue_Provider>(context,
+                                  listen: false)
+                              .M1
+                              .Years);
+                          print(Provider.of<AddPageValue_Provider>(context,
+                                  listen: false)
+                              .M1
+                              .Hours);
+                          print(Provider.of<AddPageValue_Provider>(context,
+                                  listen: false)
+                              .M1
+                              .Minits);
+                          print(Provider.of<AddPageValue_Provider>(context,
+                                  listen: false)
+                              .M1
+                              .Images);
                         }
                       },
                       child: Text("Save"),

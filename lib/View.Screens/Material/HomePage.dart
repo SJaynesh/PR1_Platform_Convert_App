@@ -124,14 +124,6 @@ class _HomePageState extends State<HomePage> {
                 ),
                 elevation: 0,
                 actions: [
-                  // IconButton(
-                  //   onPressed: () {},
-                  //   icon: Icon(
-                  //     Icons.menu,
-                  //     size: h * 0.02,
-                  //   ),
-                  // ),
-
                   Switch(
                     inactiveTrackColor: Colors.grey.shade300,
                     thumbColor: MaterialStateProperty.all(Colors.grey.shade700),

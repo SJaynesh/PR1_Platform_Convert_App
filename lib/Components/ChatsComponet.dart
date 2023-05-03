@@ -43,11 +43,10 @@ class _ChatsComponetState extends State<ChatsComponet> {
                 ),
               )
             : ListView.builder(
-                itemCount:
-                    Provider.of<AddPageValue_Provider>(context)
-                        .M1
-                        .FullName
-                        .length,
+                itemCount: Provider.of<AddPageValue_Provider>(context)
+                    .M1
+                    .FullName
+                    .length,
                 itemBuilder: (context, i) => Padding(
                   padding: const EdgeInsets.all(10),
                   child: CupertinoListTile(
@@ -118,439 +117,593 @@ class _ChatsComponetState extends State<ChatsComponet> {
                                       onPressed: () {
                                         showCupertinoDialog(
                                           context: context,
-                                          builder: (context) => StatefulBuilder(builder: (context,setState)=>
-                                              CupertinoAlertDialog(
-                                            actions: [
-                                              Form(
-                                                key : FormKey,
-                                                child: SingleChildScrollView(
-                                                  child: Column(
-                                                    mainAxisAlignment: MainAxisAlignment.center,
-                                                    children: [
-                                                      Center(
-                                                        child: CircleAvatar(
-                                                          radius: h * 0.08,
-                                                          foregroundImage: (Provider.of<AddImage_Provider>(context,
-                                                              listen: false)
-                                                              .a1
-                                                              .image !=
-                                                              null)
-                                                              ? FileImage(Provider.of<AddImage_Provider>(context,
-                                                              listen: true)
-                                                              .a1
-                                                              .image as File)
-                                                              : null,
-                                                          backgroundColor: Color(0xffE3DFFD),
-                                                          child: CupertinoButton(
-                                                            child: Icon(CupertinoIcons.camera, size: h * 0.05),
-                                                            onPressed: () {
-                                                              showCupertinoDialog(
-                                                                context: context,
-                                                                builder: (context) => CupertinoAlertDialog(
-                                                                  title: Center(
-                                                                    child: Text(
-                                                                      "SELECT",
-                                                                      style: TextStyle(
-                                                                        color: Color(0xff5F264A),
+                                          builder: (context) => StatefulBuilder(
+                                            builder: (context, setState) =>
+                                                CupertinoAlertDialog(
+                                              actions: [
+                                                Form(
+                                                  key: FormKey,
+                                                  child: SingleChildScrollView(
+                                                    child: Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Center(
+                                                          child: CircleAvatar(
+                                                            radius: h * 0.08,
+                                                            foregroundImage: (Provider.of<AddImage_Provider>(
+                                                                            context,
+                                                                            listen:
+                                                                                false)
+                                                                        .a1
+                                                                        .image !=
+                                                                    null)
+                                                                ? FileImage(Provider.of<
+                                                                            AddImage_Provider>(
+                                                                        context,
+                                                                        listen:
+                                                                            true)
+                                                                    .a1
+                                                                    .image as File)
+                                                                : null,
+                                                            backgroundColor:
+                                                                Color(
+                                                                    0xffE3DFFD),
+                                                            child:
+                                                                CupertinoButton(
+                                                              child: Icon(
+                                                                  CupertinoIcons
+                                                                      .camera,
+                                                                  size:
+                                                                      h * 0.05),
+                                                              onPressed: () {
+                                                                showCupertinoDialog(
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (context) =>
+                                                                          CupertinoAlertDialog(
+                                                                    title:
+                                                                        Center(
+                                                                      child:
+                                                                          Text(
+                                                                        "SELECT",
+                                                                        style:
+                                                                            TextStyle(
+                                                                          color:
+                                                                              Color(0xff5F264A),
+                                                                        ),
                                                                       ),
                                                                     ),
+                                                                    actions: [
+                                                                      CupertinoDialogAction(
+                                                                        child:
+                                                                            Icon(
+                                                                          CupertinoIcons
+                                                                              .camera_fill,
+                                                                          color:
+                                                                              Color(0xff5F264A),
+                                                                        ),
+                                                                        onPressed:
+                                                                            () {
+                                                                          Provider.of<AddImage_Provider>(context, listen: false)
+                                                                              .putImageForCamera();
+                                                                          Navigator.of(context)
+                                                                              .pop();
+                                                                        },
+                                                                      ),
+                                                                      CupertinoDialogAction(
+                                                                        child:
+                                                                            Icon(
+                                                                          CupertinoIcons
+                                                                              .photo,
+                                                                          color:
+                                                                              Color(0xff5F264A),
+                                                                        ),
+                                                                        onPressed:
+                                                                            () {
+                                                                          Provider.of<AddImage_Provider>(context, listen: false)
+                                                                              .putImageForGallery();
+                                                                          Provider.of<ImagePicker_Provider>(context, listen: false)
+                                                                              .putImageForGallery();
+                                                                          Navigator.of(context)
+                                                                              .pop();
+                                                                        },
+                                                                      ),
+                                                                    ],
                                                                   ),
-                                                                  actions: [
-                                                                    CupertinoDialogAction(
-                                                                      child: Icon(
-                                                                        CupertinoIcons.camera_fill,
-                                                                        color: Color(0xff5F264A),
-                                                                      ),
-                                                                      onPressed: () {
-                                                                        Provider.of<AddImage_Provider>(context,
-                                                                            listen: false)
-                                                                            .putImageForCamera();
-                                                                        Navigator.of(context).pop();
-                                                                      },
-                                                                    ),
-                                                                    CupertinoDialogAction(
-                                                                      child: Icon(
-                                                                        CupertinoIcons.photo,
-                                                                        color: Color(0xff5F264A),
-                                                                      ),
-                                                                      onPressed: () {
-                                                                        Provider.of<AddImage_Provider>(context,
-                                                                            listen: false)
-                                                                            .putImageForGallery();
-                                                                        Provider.of<ImagePicker_Provider>(context,
-                                                                            listen: false)
-                                                                            .putImageForGallery();
-                                                                        Navigator.of(context).pop();
-                                                                      },
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              );
-                                                            },
+                                                                );
+                                                              },
+                                                            ),
                                                           ),
                                                         ),
-                                                      ),
-                                                      SizedBox(
-                                                        height: h * 0.02,
-                                                      ),
-                                                      CupertinoButton(
-                                                        color: Color(0xfff5f5fd),
-                                                        padding: EdgeInsets.only(left: 15, right: 15),
-                                                        borderRadius: BorderRadius.circular(20),
-                                                        child: Text(
-                                                          "Add picture",
+                                                        SizedBox(
+                                                          height: h * 0.02,
+                                                        ),
+                                                        CupertinoButton(
+                                                          color:
+                                                              Color(0xfff5f5fd),
+                                                          padding:
+                                                              EdgeInsets.only(
+                                                                  left: 15,
+                                                                  right: 15),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(20),
+                                                          child: Text(
+                                                            "Add picture",
+                                                            style: TextStyle(
+                                                              fontSize:
+                                                                  h * 0.018,
+                                                              color: Color(
+                                                                  0xff376ab9),
+                                                            ),
+                                                          ),
+                                                          onPressed: () {
+                                                            showCupertinoDialog(
+                                                              context: context,
+                                                              builder: (context) =>
+                                                                  CupertinoAlertDialog(
+                                                                title: Center(
+                                                                  child: Text(
+                                                                    "SELECT",
+                                                                    style:
+                                                                        TextStyle(
+                                                                      color: Color(
+                                                                          0xff5F264A),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                actions: [
+                                                                  CupertinoDialogAction(
+                                                                    child: Icon(
+                                                                      CupertinoIcons
+                                                                          .camera_fill,
+                                                                      color: Color(
+                                                                          0xff5F264A),
+                                                                    ),
+                                                                    onPressed:
+                                                                        () {
+                                                                      Provider.of<AddImage_Provider>(
+                                                                              context,
+                                                                              listen: false)
+                                                                          .putImageForCamera();
+                                                                      Navigator.of(
+                                                                              context)
+                                                                          .pop();
+                                                                    },
+                                                                  ),
+                                                                  CupertinoDialogAction(
+                                                                    child: Icon(
+                                                                      CupertinoIcons
+                                                                          .photo,
+                                                                      color: Color(
+                                                                          0xff5F264A),
+                                                                    ),
+                                                                    onPressed:
+                                                                        () {
+                                                                      Provider.of<AddImage_Provider>(
+                                                                              context,
+                                                                              listen: false)
+                                                                          .putImageForGallery();
+                                                                      Provider.of<ImagePicker_Provider>(
+                                                                              context,
+                                                                              listen: false)
+                                                                          .putImageForGallery();
+                                                                      Navigator.of(
+                                                                              context)
+                                                                          .pop();
+                                                                    },
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            );
+                                                          },
+                                                        ),
+                                                        SizedBox(
+                                                          height: h * 0.02,
+                                                        ),
+                                                        CupertinoTextFormFieldRow(
+                                                          textInputAction:
+                                                              TextInputAction
+                                                                  .next,
+                                                          prefix: Icon(
+                                                            CupertinoIcons
+                                                                .person_alt,
+                                                            color:
+                                                                CupertinoColors
+                                                                    .systemTeal,
+                                                          ),
+                                                          controller:
+                                                              FullNameController,
+                                                          placeholderStyle:
+                                                              TextStyle(
+                                                            color: CupertinoColors
+                                                                .placeholderText,
+                                                          ),
                                                           style: TextStyle(
-                                                            fontSize: h * 0.018,
-                                                            color: Color(0xff376ab9),
+                                                              color: CupertinoColors
+                                                                  .placeholderText),
+                                                          onSaved: (val) {
+                                                            fullNameEdit = val;
+                                                            print(val);
+                                                          },
+                                                          validator: (val) {
+                                                            if (val!.isEmpty) {
+                                                              return "Enter Your Full Name";
+                                                            } else {
+                                                              return null;
+                                                            }
+                                                          },
+                                                          padding:
+                                                              EdgeInsets.only(
+                                                                  left: 20,
+                                                                  right: 20),
+                                                          placeholder: "Name",
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10),
+                                                            border: Border.all(
+                                                              style: BorderStyle
+                                                                  .solid,
+                                                              color: CupertinoColors
+                                                                  .inactiveGray,
+                                                            ),
                                                           ),
                                                         ),
-                                                        onPressed: () {
-                                                          showCupertinoDialog(
-                                                            context: context,
-                                                            builder: (context) => CupertinoAlertDialog(
-                                                              title: Center(
-                                                                child: Text(
-                                                                  "SELECT",
-                                                                  style: TextStyle(
-                                                                    color: Color(0xff5F264A),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                              actions: [
-                                                                CupertinoDialogAction(
-                                                                  child: Icon(
-                                                                    CupertinoIcons.camera_fill,
-                                                                    color: Color(0xff5F264A),
-                                                                  ),
-                                                                  onPressed: () {
-                                                                    Provider.of<AddImage_Provider>(context,
-                                                                        listen: false)
-                                                                        .putImageForCamera();
-                                                                    Navigator.of(context).pop();
-                                                                  },
-                                                                ),
-                                                                CupertinoDialogAction(
-                                                                  child: Icon(
-                                                                    CupertinoIcons.photo,
-                                                                    color: Color(0xff5F264A),
-                                                                  ),
-                                                                  onPressed: () {
-                                                                    Provider.of<AddImage_Provider>(context,
-                                                                        listen: false)
-                                                                        .putImageForGallery();
-                                                                    Provider.of<ImagePicker_Provider>(context,
-                                                                        listen: false)
-                                                                        .putImageForGallery();
-                                                                    Navigator.of(context).pop();
-                                                                  },
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          );
-                                                        },
-                                                      ),
-                                                      SizedBox(
-                                                        height: h * 0.02,
-                                                      ),
-                                                      CupertinoTextFormFieldRow(
-                                                        textInputAction: TextInputAction.next,
-                                                        prefix: Icon(
-                                                          CupertinoIcons.person_alt,
-                                                          color: CupertinoColors.systemTeal,
+                                                        SizedBox(
+                                                          height: h * 0.02,
                                                         ),
-                                                        controller: FullNameController,
-                                                        placeholderStyle: TextStyle(
-                                                          color: CupertinoColors.placeholderText,
-                                                        ),
-                                                        style: TextStyle(
-                                                            color: CupertinoColors.placeholderText
-                                                        ),
-                                                        onSaved: (val) {
-                                                          fullNameEdit = val;
-                                                          print(val);
-                                                        },
-                                                        validator: (val) {
-                                                          if (val!.isEmpty) {
-                                                            return "Enter Your Full Name";
-                                                          } else {
-                                                            return null;
-                                                          }
-                                                        },
-                                                        padding: EdgeInsets.only(left: 20, right: 20),
-                                                        placeholder: "Name",
-                                                        decoration: BoxDecoration(
-
-                                                          borderRadius: BorderRadius.circular(10),
-                                                          border: Border.all(
-                                                            style: BorderStyle.solid,
-                                                            color: CupertinoColors.inactiveGray,
+                                                        CupertinoTextFormFieldRow(
+                                                          maxLength: 10,
+                                                          prefix: Icon(
+                                                            CupertinoIcons
+                                                                .phone,
+                                                            color:
+                                                                CupertinoColors
+                                                                    .systemTeal,
                                                           ),
-                                                        ),
-                                                      ),
-                                                      SizedBox(
-                                                        height: h * 0.02,
-                                                      ),
-                                                      CupertinoTextFormFieldRow(
-                                                        maxLength: 10,
-                                                        prefix: Icon(
-                                                          CupertinoIcons.phone,
-                                                          color: CupertinoColors.systemTeal,
-                                                        ),
-                                                        textInputAction: TextInputAction.next,
-                                                        keyboardType: TextInputType.number,
-                                                        inputFormatters: [
-                                                          FilteringTextInputFormatter.digitsOnly,
-                                                        ],
-                                                        controller: PhoneNumberController,
-                                                        placeholderStyle: TextStyle(
-                                                          color: CupertinoColors.placeholderText,
-                                                        ),
-                                                        style: TextStyle(
-                                                            color: CupertinoColors.placeholderText
-                                                        ),
-                                                        onSaved: (val) {
-                                                          phoneNumberEdit = val;
-                                                          print(val);
-                                                        },
-                                                        validator: (val) {
-                                                          if (val!.isEmpty) {
-                                                            return "Enter Your Phone Number";
-                                                          } else {
-                                                            return null;
-                                                          }
-                                                        },
-                                                        padding: EdgeInsets.only(left: 20, right: 20),
-                                                        placeholder: "Phone Number",
-                                                        decoration: BoxDecoration(
-                                                          borderRadius: BorderRadius.circular(10),
-                                                          border: Border.all(
-                                                            style: BorderStyle.solid,
-                                                            color: CupertinoColors.inactiveGray,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      SizedBox(
-                                                        height: h * 0.02,
-                                                      ),
-                                                      CupertinoTextFormFieldRow(
-                                                        prefix: Icon(
-                                                          CupertinoIcons.chat_bubble,
-                                                          color: CupertinoColors.systemTeal,
-                                                        ),
-                                                        textInputAction: TextInputAction.done,
-                                                        controller: ChatController,
-                                                        placeholderStyle: TextStyle(
-                                                          color: CupertinoColors.placeholderText,
-                                                        ),
-                                                        style: TextStyle(
-                                                            color: CupertinoColors.placeholderText
-                                                        ),
-                                                        onSaved: (val) {
-                                                          chatEdit = val;
-                                                          print(val);
-                                                        },
-                                                        validator: (val) {
-                                                          if (val!.isEmpty) {
-                                                            return "Enter Your Chat Conversation";
-                                                          } else {
-                                                            return null;
-                                                          }
-                                                        },
-                                                        padding: EdgeInsets.only(left: 20, right: 20),
-                                                        placeholder: "Chat Conversation",
-                                                        decoration: BoxDecoration(
-                                                          borderRadius: BorderRadius.circular(10),
-                                                          border: Border.all(
-                                                            style: BorderStyle.solid,
-                                                            color: CupertinoColors.inactiveGray,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      SizedBox(
-                                                        height: h * 0.02,
-                                                      ),
-                                                      Padding(
-                                                        padding: const EdgeInsets.only(left: 20),
-                                                        child: Row(
-                                                          children: [
-                                                            GestureDetector(
-                                                              onTap: () {
-                                                                showCupertinoModalPopup(
-                                                                  context: context,
-                                                                  builder: (context) => Container(
-                                                                    height: h * 0.35,
-                                                                    child: CupertinoDatePicker(
-                                                                      onDateTimeChanged: (val) {
-                                                                        setState(() {
-                                                                          PickedDateEdit = val;
-                                                                        });
-                                                                      },
-                                                                      initialDateTime: Date,
-                                                                      minimumYear: 2000,
-                                                                      maximumYear: 2024,
-                                                                      use24hFormat: false,
-                                                                      mode: CupertinoDatePickerMode.date,
-                                                                      backgroundColor: CupertinoColors.separator,
-                                                                    ),
-                                                                  ),
-                                                                );
-                                                              },
-                                                              child: Icon(
-                                                                CupertinoIcons.calendar_today,
-                                                                color: CupertinoColors.systemTeal,
-                                                              ),
-                                                            ),
-                                                            SizedBox(
-                                                              width: w * 0.02,
-                                                            ),
-                                                            (PickedDateEdit != null)
-                                                                ? Text(
-                                                              "${PickedDateEdit?.day} / ${PickedDateEdit?.month} / ${PickedDateEdit?.year}",
-                                                              style: TextStyle(
-                                                                  color: (Provider.of<Theme_Provider>(context)
-                                                                      .m1
-                                                                      .isDark)
-                                                                      ? CupertinoColors.white
-                                                                      : CupertinoColors.black),
-                                                            )
-                                                                : Text(
-                                                              "Pick Date",
-                                                              style: TextStyle(
-                                                                  color: (Provider.of<Theme_Provider>(context)
-                                                                      .m1
-                                                                      .isDark)
-                                                                      ? CupertinoColors.white
-                                                                      : CupertinoColors.black),
-                                                            ),
+                                                          textInputAction:
+                                                              TextInputAction
+                                                                  .next,
+                                                          keyboardType:
+                                                              TextInputType
+                                                                  .number,
+                                                          inputFormatters: [
+                                                            FilteringTextInputFormatter
+                                                                .digitsOnly,
                                                           ],
+                                                          controller:
+                                                              PhoneNumberController,
+                                                          placeholderStyle:
+                                                              TextStyle(
+                                                            color: CupertinoColors
+                                                                .placeholderText,
+                                                          ),
+                                                          style: TextStyle(
+                                                              color: CupertinoColors
+                                                                  .placeholderText),
+                                                          onSaved: (val) {
+                                                            phoneNumberEdit =
+                                                                val;
+                                                            print(val);
+                                                          },
+                                                          validator: (val) {
+                                                            if (val!.isEmpty) {
+                                                              return "Enter Your Phone Number";
+                                                            } else {
+                                                              return null;
+                                                            }
+                                                          },
+                                                          padding:
+                                                              EdgeInsets.only(
+                                                                  left: 20,
+                                                                  right: 20),
+                                                          placeholder:
+                                                              "Phone Number",
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10),
+                                                            border: Border.all(
+                                                              style: BorderStyle
+                                                                  .solid,
+                                                              color: CupertinoColors
+                                                                  .inactiveGray,
+                                                            ),
+                                                          ),
                                                         ),
-                                                      ),
-                                                      SizedBox(
-                                                        height: h * 0.02,
-                                                      ),
-                                                      Padding(
-                                                        padding: const EdgeInsets.only(left: 20),
-                                                        child: Row(
-                                                          children: [
-                                                            GestureDetector(
-                                                              onTap: () {
-                                                                showCupertinoModalPopup(
-                                                                  context: context,
-                                                                  builder: (context) => Container(
-                                                                    height: h * 0.35,
-                                                                    child: CupertinoDatePicker(
-                                                                      onDateTimeChanged: (val) {
-                                                                        setState(() {
-                                                                          InitialTime = val;
-
-                                                                          if (InitialTime.hour >= 12) {
-                                                                            PeriodName = "PM";
-                                                                          } else {
-                                                                            PeriodName = "AM";
-                                                                          }
-                                                                        });
-                                                                      },
-                                                                      initialDateTime: InitialTime,
-                                                                      mode: CupertinoDatePickerMode.time,
-                                                                      backgroundColor: CupertinoColors.separator,
+                                                        SizedBox(
+                                                          height: h * 0.02,
+                                                        ),
+                                                        CupertinoTextFormFieldRow(
+                                                          prefix: Icon(
+                                                            CupertinoIcons
+                                                                .chat_bubble,
+                                                            color:
+                                                                CupertinoColors
+                                                                    .systemTeal,
+                                                          ),
+                                                          textInputAction:
+                                                              TextInputAction
+                                                                  .done,
+                                                          controller:
+                                                              ChatController,
+                                                          placeholderStyle:
+                                                              TextStyle(
+                                                            color: CupertinoColors
+                                                                .placeholderText,
+                                                          ),
+                                                          style: TextStyle(
+                                                              color: CupertinoColors
+                                                                  .placeholderText),
+                                                          onSaved: (val) {
+                                                            chatEdit = val;
+                                                            print(val);
+                                                          },
+                                                          validator: (val) {
+                                                            if (val!.isEmpty) {
+                                                              return "Enter Your Chat Conversation";
+                                                            } else {
+                                                              return null;
+                                                            }
+                                                          },
+                                                          padding:
+                                                              EdgeInsets.only(
+                                                                  left: 20,
+                                                                  right: 20),
+                                                          placeholder:
+                                                              "Chat Conversation",
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10),
+                                                            border: Border.all(
+                                                              style: BorderStyle
+                                                                  .solid,
+                                                              color: CupertinoColors
+                                                                  .inactiveGray,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        SizedBox(
+                                                          height: h * 0.02,
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                      .only(
+                                                                  left: 20),
+                                                          child: Row(
+                                                            children: [
+                                                              GestureDetector(
+                                                                onTap: () {
+                                                                  showCupertinoModalPopup(
+                                                                    context:
+                                                                        context,
+                                                                    builder:
+                                                                        (context) =>
+                                                                            Container(
+                                                                      height: h *
+                                                                          0.35,
+                                                                      child:
+                                                                          CupertinoDatePicker(
+                                                                        onDateTimeChanged:
+                                                                            (val) {
+                                                                          setState(
+                                                                              () {
+                                                                            PickedDateEdit =
+                                                                                val;
+                                                                          });
+                                                                        },
+                                                                        initialDateTime:
+                                                                            Date,
+                                                                        minimumYear:
+                                                                            2000,
+                                                                        maximumYear:
+                                                                            2024,
+                                                                        use24hFormat:
+                                                                            false,
+                                                                        mode: CupertinoDatePickerMode
+                                                                            .date,
+                                                                        backgroundColor:
+                                                                            CupertinoColors.separator,
+                                                                      ),
                                                                     ),
-                                                                  ),
-                                                                );
-                                                              },
-                                                              child: Icon(
-                                                                CupertinoIcons.time,
-                                                                color: CupertinoColors.systemTeal,
+                                                                  );
+                                                                },
+                                                                child: Icon(
+                                                                  CupertinoIcons
+                                                                      .calendar_today,
+                                                                  color: CupertinoColors
+                                                                      .systemTeal,
+                                                                ),
                                                               ),
-                                                            ),
-                                                            SizedBox(
-                                                              width: w * 0.02,
-                                                            ),
-                                                            (PeriodName == null)
-                                                                ? Text(
-                                                              "Pick Time",
-                                                              style: TextStyle(
-                                                                  color: (Provider.of<Theme_Provider>(context)
-                                                                      .m1
-                                                                      .isDark)
-                                                                      ? CupertinoColors.white
-                                                                      : CupertinoColors.black),
-                                                            )
-                                                                : (PeriodName == "AM")
-                                                                ? Text(
-                                                              "${InitialTime.hour} : ${InitialTime.minute} $PeriodName",
-                                                              style: TextStyle(
-                                                                  color: (Provider.of<Theme_Provider>(
-                                                                      context)
-                                                                      .m1
-                                                                      .isDark)
-                                                                      ? CupertinoColors.white
-                                                                      : CupertinoColors.black),
-                                                            )
-                                                                : (InitialTime.hour > 12)
-                                                                ? Text(
-                                                              "${InitialTime.hour - 12} : ${InitialTime.minute} $PeriodName",
-                                                              style: TextStyle(
-                                                                  color: (Provider.of<Theme_Provider>(
-                                                                      context)
-                                                                      .m1
-                                                                      .isDark)
-                                                                      ? CupertinoColors.white
-                                                                      : CupertinoColors.black),
-                                                            )
-                                                                : Text(
-                                                              "${InitialTime.hour} : ${InitialTime.minute} $PeriodName",
-                                                              style: TextStyle(
-                                                                  color: (Provider.of<Theme_Provider>(
-                                                                      context)
-                                                                      .m1
-                                                                      .isDark)
-                                                                      ? CupertinoColors.white
-                                                                      : CupertinoColors.black),
-                                                            ),
-                                                          ],
+                                                              SizedBox(
+                                                                width: w * 0.02,
+                                                              ),
+                                                              (PickedDateEdit !=
+                                                                      null)
+                                                                  ? Text(
+                                                                      "${PickedDateEdit?.day} / ${PickedDateEdit?.month} / ${PickedDateEdit?.year}",
+                                                                      style: TextStyle(
+                                                                          color: (Provider.of<Theme_Provider>(context).m1.isDark)
+                                                                              ? CupertinoColors.white
+                                                                              : CupertinoColors.black),
+                                                                    )
+                                                                  : Text(
+                                                                      "Pick Date",
+                                                                      style: TextStyle(
+                                                                          color: (Provider.of<Theme_Provider>(context).m1.isDark)
+                                                                              ? CupertinoColors.white
+                                                                              : CupertinoColors.black),
+                                                                    ),
+                                                            ],
+                                                          ),
                                                         ),
-                                                      ),
-                                                      SizedBox(
-                                                        height: h * 0.02,
-                                                      ),
-                                                      CupertinoButton(
-                                                        color: Color(0xfff5f5fd),
-                                                        child: Text(
-                                                          "Save",
-                                                          style: TextStyle(color: CupertinoColors.activeBlue),
+                                                        SizedBox(
+                                                          height: h * 0.02,
                                                         ),
-                                                        onPressed: () {
-                                                          if (FormKey.currentState!.validate()) {FormKey.currentState!.save();
-                                                          Provider.of<AddPageValue_Provider>(context, listen: false).EditValue(i);
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                      .only(
+                                                                  left: 20),
+                                                          child: Row(
+                                                            children: [
+                                                              GestureDetector(
+                                                                onTap: () {
+                                                                  showCupertinoModalPopup(
+                                                                    context:
+                                                                        context,
+                                                                    builder:
+                                                                        (context) =>
+                                                                            Container(
+                                                                      height: h *
+                                                                          0.35,
+                                                                      child:
+                                                                          CupertinoDatePicker(
+                                                                        onDateTimeChanged:
+                                                                            (val) {
+                                                                          setState(
+                                                                              () {
+                                                                            InitialTime =
+                                                                                val;
 
-                                                          FullNameController.clear();
-                                                          PhoneNumberController.clear();
-                                                          ChatController.clear();
-                                                          PickedDateEdit = null;
-                                                          PeriodName = null;
-                                                          time = null;
-                                                          Provider.of<AddImage_Provider>(context, listen: false).ClearImage();
-                                                          Navigator.of(context).pop();
-                                                          Navigator.of(context).pop();
-                                                          }
-                                                        },
-                                                      ),
-                                                      SizedBox(
-                                                        height: h * 0.02,
-                                                      ),
-                                                    ],
+                                                                            if (InitialTime.hour >=
+                                                                                12) {
+                                                                              PeriodName = "PM";
+                                                                            } else {
+                                                                              PeriodName = "AM";
+                                                                            }
+                                                                          });
+                                                                        },
+                                                                        initialDateTime:
+                                                                            InitialTime,
+                                                                        mode: CupertinoDatePickerMode
+                                                                            .time,
+                                                                        backgroundColor:
+                                                                            CupertinoColors.separator,
+                                                                      ),
+                                                                    ),
+                                                                  );
+                                                                },
+                                                                child: Icon(
+                                                                  CupertinoIcons
+                                                                      .time,
+                                                                  color: CupertinoColors
+                                                                      .systemTeal,
+                                                                ),
+                                                              ),
+                                                              SizedBox(
+                                                                width: w * 0.02,
+                                                              ),
+                                                              (PeriodName ==
+                                                                      null)
+                                                                  ? Text(
+                                                                      "Pick Time",
+                                                                      style: TextStyle(
+                                                                          color: (Provider.of<Theme_Provider>(context).m1.isDark)
+                                                                              ? CupertinoColors.white
+                                                                              : CupertinoColors.black),
+                                                                    )
+                                                                  : (PeriodName ==
+                                                                          "AM")
+                                                                      ? Text(
+                                                                          "${InitialTime.hour} : ${InitialTime.minute} $PeriodName",
+                                                                          style:
+                                                                              TextStyle(color: (Provider.of<Theme_Provider>(context).m1.isDark) ? CupertinoColors.white : CupertinoColors.black),
+                                                                        )
+                                                                      : (InitialTime.hour >
+                                                                              12)
+                                                                          ? Text(
+                                                                              "${InitialTime.hour - 12} : ${InitialTime.minute} $PeriodName",
+                                                                              style: TextStyle(color: (Provider.of<Theme_Provider>(context).m1.isDark) ? CupertinoColors.white : CupertinoColors.black),
+                                                                            )
+                                                                          : Text(
+                                                                              "${InitialTime.hour} : ${InitialTime.minute} $PeriodName",
+                                                                              style: TextStyle(color: (Provider.of<Theme_Provider>(context).m1.isDark) ? CupertinoColors.white : CupertinoColors.black),
+                                                                            ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        SizedBox(
+                                                          height: h * 0.02,
+                                                        ),
+                                                        CupertinoButton(
+                                                          color:
+                                                              Color(0xfff5f5fd),
+                                                          child: Text(
+                                                            "Save",
+                                                            style: TextStyle(
+                                                                color: CupertinoColors
+                                                                    .activeBlue),
+                                                          ),
+                                                          onPressed: () {
+                                                            if (FormKey
+                                                                .currentState!
+                                                                .validate()) {
+                                                              FormKey
+                                                                  .currentState!
+                                                                  .save();
+                                                              Provider.of<AddPageValue_Provider>(
+                                                                      context,
+                                                                      listen:
+                                                                          false)
+                                                                  .EditValue(i);
+
+                                                              FullNameController
+                                                                  .clear();
+                                                              PhoneNumberController
+                                                                  .clear();
+                                                              ChatController
+                                                                  .clear();
+                                                              PickedDateEdit =
+                                                                  null;
+                                                              PeriodName = null;
+                                                              time = null;
+                                                              Provider.of<AddImage_Provider>(
+                                                                      context,
+                                                                      listen:
+                                                                          false)
+                                                                  .ClearImage();
+                                                              Navigator.of(
+                                                                      context)
+                                                                  .pop();
+                                                              Navigator.of(
+                                                                      context)
+                                                                  .pop();
+                                                            }
+                                                          },
+                                                        ),
+                                                        SizedBox(
+                                                          height: h * 0.02,
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                            ],
-                                          ),) ,
+                                              ],
+                                            ),
+                                          ),
                                         );
                                       },
                                       child: Icon(CupertinoIcons.eyedropper),
                                     ),
                                     CupertinoActionSheetAction(
                                       onPressed: () {
-                                        Provider.of<AddPageValue_Provider>(context, listen: false).ClearValue(i);
+                                        Provider.of<AddPageValue_Provider>(
+                                                context,
+                                                listen: false)
+                                            .ClearValue(i);
                                         Navigator.of(context).pop();
                                       },
                                       child: Icon(CupertinoIcons.delete),
@@ -588,14 +741,16 @@ class _ChatsComponetState extends State<ChatsComponet> {
                             : null,
                       ),
                     ),
-                    title: Text("   ${Provider.of<AddPageValue_Provider>(context, listen: false).M1.FullName[i]}",
+                    title: Text(
+                      "   ${Provider.of<AddPageValue_Provider>(context, listen: false).M1.FullName[i]}",
                       style: TextStyle(
                         color: (Provider.of<Theme_Provider>(context).m1.isDark)
                             ? CupertinoColors.white
                             : CupertinoColors.black,
                       ),
                     ),
-                    subtitle: Text("   ${Provider.of<AddPageValue_Provider>(context, listen: false).M1.Chats[i]}"),
+                    subtitle: Text(
+                        "   ${Provider.of<AddPageValue_Provider>(context, listen: false).M1.Chats[i]}"),
                     trailing: Text(
                       "${Provider.of<AddPageValue_Provider>(context, listen: false).M1.Dates[i]} / ${Provider.of<AddPageValue_Provider>(context, listen: false).M1.Months[i]} / ${Provider.of<AddPageValue_Provider>(context, listen: false).M1.Years[i]} , ${Provider.of<AddPageValue_Provider>(context, listen: false).M1.Hours[i]} : ${Provider.of<AddPageValue_Provider>(context, listen: false).M1.Minits[i]}",
                       style: TextStyle(
@@ -1319,17 +1474,38 @@ class _ChatsComponetState extends State<ChatsComponet> {
                                                       ),
                                                       OutlinedButton(
                                                         onPressed: () {
-                                                          if (FormKey.currentState!.validate()) {FormKey.currentState!.save();
-                                                            Provider.of<AddPageValue_Provider>(context, listen: false).EditValue(i);
+                                                          if (FormKey
+                                                              .currentState!
+                                                              .validate()) {
+                                                            FormKey
+                                                                .currentState!
+                                                                .save();
+                                                            Provider.of<AddPageValue_Provider>(
+                                                                    context,
+                                                                    listen:
+                                                                        false)
+                                                                .EditValue(i);
 
-                                                            FullNameController.clear();
-                                                            PhoneNumberController.clear();
-                                                            ChatController.clear();
-                                                            PickedDateEdit = null;
+                                                            FullNameController
+                                                                .clear();
+                                                            PhoneNumberController
+                                                                .clear();
+                                                            ChatController
+                                                                .clear();
+                                                            PickedDateEdit =
+                                                                null;
                                                             time = null;
-                                                            Provider.of<AddImage_Provider>(context, listen: false).ClearImage();
-                                                            Navigator.of(context).pop();
-                                                            Navigator.of(context).pop();
+                                                            Provider.of<AddImage_Provider>(
+                                                                    context,
+                                                                    listen:
+                                                                        false)
+                                                                .ClearImage();
+                                                            Navigator.of(
+                                                                    context)
+                                                                .pop();
+                                                            Navigator.of(
+                                                                    context)
+                                                                .pop();
                                                           }
                                                         },
                                                         child: Text("Save"),
@@ -1349,7 +1525,8 @@ class _ChatsComponetState extends State<ChatsComponet> {
                                     onPressed: () {
                                       Provider.of<AddPageValue_Provider>(
                                               context,
-                                              listen: false).ClearValue(i);
+                                              listen: false)
+                                          .ClearValue(i);
                                       Navigator.of(context).pop();
                                     },
                                     icon: Icon(Icons.delete),
@@ -1393,8 +1570,10 @@ class _ChatsComponetState extends State<ChatsComponet> {
                                 : null,
                       ),
                     ),
-                    title: Text("   ${Provider.of<AddPageValue_Provider>(context, listen: false).M1.FullName[i]}"),
-                    subtitle: Text("   ${Provider.of<AddPageValue_Provider>(context, listen: false).M1.Chats[i]}"),
+                    title: Text(
+                        "   ${Provider.of<AddPageValue_Provider>(context, listen: false).M1.FullName[i]}"),
+                    subtitle: Text(
+                        "   ${Provider.of<AddPageValue_Provider>(context, listen: false).M1.Chats[i]}"),
                     trailing: Text(
                         "${Provider.of<AddPageValue_Provider>(context, listen: false).M1.Dates[i]} / ${Provider.of<AddPageValue_Provider>(context, listen: false).M1.Months[i]} / ${Provider.of<AddPageValue_Provider>(context, listen: false).M1.Years[i]} , ${Provider.of<AddPageValue_Provider>(context, listen: false).M1.Hours[i]} : ${Provider.of<AddPageValue_Provider>(context, listen: false).M1.Minits[i]}"),
                   ),
