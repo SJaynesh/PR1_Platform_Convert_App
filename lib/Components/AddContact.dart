@@ -22,8 +22,7 @@ class AddContacts extends StatefulWidget {
 class _AddContactsState extends State<AddContacts> {
   GlobalKey<FormState> FormKey = GlobalKey<FormState>();
 
-  DateTime InitialTime = DateTime.now();
-  String? PeriodName;
+
 
   @override
   Widget build(BuildContext context) {
@@ -205,6 +204,7 @@ class _AddContactsState extends State<AddContacts> {
                     height: h * 0.02,
                   ),
                   CupertinoTextFormFieldRow(
+                    maxLength: 10,
                     prefix: Icon(
                       CupertinoIcons.phone,
                       color: CupertinoColors.systemTeal,
@@ -423,6 +423,9 @@ class _AddContactsState extends State<AddContacts> {
                       ],
                     ),
                   ),
+                  SizedBox(
+                    height: h * 0.05,
+                  ),
                   CupertinoButton(
                     color: Color(0xfff5f5fd),
                     child: Text(
@@ -438,11 +441,13 @@ class _AddContactsState extends State<AddContacts> {
                         PhoneNumberController.clear();
                         ChatController.clear();
                         PickedDate = null;
+                        PeriodName = null;
                         time = null;
                         Provider.of<AddImage_Provider>(context,listen: false).ClearImage();
                       }
                     },
                   ),
+
                 ],
               ),
             ),
@@ -509,19 +514,6 @@ class _AddContactsState extends State<AddContacts> {
                                           child: ListTile(
                                             trailing: ElevatedButton(
                                               onPressed: () {
-                                                // ImagePicker picker =
-                                                //     ImagePicker();
-                                                // XFile? xFile =
-                                                //     await picker.pickImage(
-                                                //         source:
-                                                //             ImageSource
-                                                //                 .gallery);
-                                                //
-                                                // String path = xFile!.path;
-                                                //
-                                                // setState(() {
-                                                //   image = File(path);
-                                                // });
                                                 Provider.of<AddImage_Provider>(
                                                         context,
                                                         listen: false)
@@ -831,12 +823,6 @@ class _AddContactsState extends State<AddContacts> {
                         IconButton(
                           onPressed: () async {
 
-                            print("===========================");
-                            print(Provider.of<AddImage_Provider>(
-                                context,
-                                listen: false).a1.image.path);
-                            print("===========================");
-
                             DateTime? date = await showDatePicker(
                               context: context,
                               initialDate: Date,
@@ -937,6 +923,7 @@ class _AddContactsState extends State<AddContacts> {
                           ChatController.clear();
                           PickedDate = null;
                           time = null;
+                          PeriodName = null;
                           Provider.of<AddImage_Provider>(context,listen: false).ClearImage();
 
                           print(Provider.of<AddPageValue_Provider>(context,listen: false).M1.FullName);

@@ -23,6 +23,8 @@ DateTime? PickedDate;
 TimeOfDay? time;
 TimeOfDay Time = TimeOfDay.now();
 
+DateTime InitialTime = DateTime.now();
+String? PeriodName;
 
 List<String> FullName = [];
 List<String> PhoneNumber = [];
@@ -35,3 +37,10 @@ List<String> Minits = [];
 List<String> Images = [];
 
 String allImages = "";
+
+String? fullNameEdit;
+String? phoneNumberEdit;
+String? chatEdit;
+
+DateTime? PickedDateEdit;
+TimeOfDay TimeEdit = TimeOfDay.now();
