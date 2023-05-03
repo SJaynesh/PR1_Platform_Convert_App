@@ -42,6 +42,7 @@ class _CallComponetState extends State<CallComponet> {
                   "No Contact... ",
                   style: TextStyle(
                     fontSize: h * 0.03,
+                    color: (Provider.of<Theme_Provider>(context).m1.isDark) ? CupertinoColors.white : CupertinoColors.black,
                   ),
                 ),
               )
@@ -842,6 +843,7 @@ class _CallComponetState extends State<CallComponet> {
                                     .FullName[i],
                                 style: TextStyle(
                                   fontSize: h * 0.025,
+                                  color: Colors.black,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -850,7 +852,8 @@ class _CallComponetState extends State<CallComponet> {
                                         listen: false)
                                     .M1
                                     .Chats[i],
-                                style: TextStyle(fontSize: h * 0.015),
+                                style: TextStyle(fontSize: h * 0.015,
+                                  color: Colors.black,),
                               ),
                               SizedBox(
                                 height: h * 0.025,
@@ -1529,7 +1532,8 @@ class _CallComponetState extends State<CallComponet> {
                                         ),
                                       );
                                     },
-                                    icon: Icon(Icons.edit),
+                                    icon: Icon(Icons.edit,
+                                      color: Colors.black,),
                                   ),
                                   IconButton(
                                     onPressed: () {
@@ -1539,7 +1543,7 @@ class _CallComponetState extends State<CallComponet> {
                                           .ClearValue(i);
                                       Navigator.of(context).pop();
                                     },
-                                    icon: Icon(Icons.delete),
+                                    icon: Icon(Icons.delete,color: Colors.black,),
                                   ),
                                 ],
                               ),

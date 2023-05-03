@@ -39,6 +39,7 @@ class _ChatsComponetState extends State<ChatsComponet> {
                   "No Contact... ",
                   style: TextStyle(
                     fontSize: h * 0.03,
+                    color: (Provider.of<Theme_Provider>(context).m1.isDark) ? CupertinoColors.white : CupertinoColors.black,
                   ),
                 ),
               )
@@ -791,7 +792,8 @@ class _ChatsComponetState extends State<ChatsComponet> {
                             top: Radius.circular(50),
                           ),
                         ),
-                        builder: (context) => Container(
+                        builder: (context) => StatefulBuilder(builder: (context,setState)=>
+                            Container(
                           height: h,
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -807,19 +809,19 @@ class _ChatsComponetState extends State<ChatsComponet> {
                               CircleAvatar(
                                 radius: h * 0.07,
                                 foregroundImage: (Provider.of<
-                                                    AddPageValue_Provider>(
-                                                context,
-                                                listen: false)
-                                            .M1
-                                            .Images !=
-                                        null)
+                                    AddPageValue_Provider>(
+                                    context,
+                                    listen: false)
+                                    .M1
+                                    .Images !=
+                                    null)
                                     ? FileImage(
-                                        File(Provider.of<AddPageValue_Provider>(
-                                                context,
-                                                listen: false)
-                                            .M1
-                                            .Images[i]),
-                                      )
+                                  File(Provider.of<AddPageValue_Provider>(
+                                      context,
+                                      listen: false)
+                                      .M1
+                                      .Images[i]),
+                                )
                                     : null,
                               ),
                               SizedBox(
@@ -827,20 +829,20 @@ class _ChatsComponetState extends State<ChatsComponet> {
                               ),
                               Text(
                                 Provider.of<AddPageValue_Provider>(context,
-                                        listen: false)
+                                    listen: false)
                                     .M1
                                     .FullName[i],
                                 style: TextStyle(
                                   fontSize: h * 0.025,
-                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
                                 ),
                               ),
                               Text(
                                 Provider.of<AddPageValue_Provider>(context,
-                                        listen: false)
+                                    listen: false)
                                     .M1
                                     .Chats[i],
-                                style: TextStyle(fontSize: h * 0.015),
+                                style: TextStyle(fontSize: h * 0.015,color: Colors.black,),
                               ),
                               SizedBox(
                                 height: h * 0.025,
@@ -855,681 +857,681 @@ class _ChatsComponetState extends State<ChatsComponet> {
                                         builder: (context) => StatefulBuilder(
                                           builder: (context, setState) =>
                                               AlertDialog(
-                                            content: Container(
-                                              width: w,
-                                              alignment: Alignment.center,
-                                              child: Form(
-                                                key: FormKey,
-                                                child: SingleChildScrollView(
-                                                  child: Column(
-                                                    mainAxisAlignment:
+                                                content: Container(
+                                                  width: w,
+                                                  alignment: Alignment.center,
+                                                  child: Form(
+                                                    key: FormKey,
+                                                    child: SingleChildScrollView(
+                                                      child: Column(
+                                                        mainAxisAlignment:
                                                         MainAxisAlignment
                                                             .center,
-                                                    children: [
-                                                      Center(
-                                                        child: CircleAvatar(
-                                                          backgroundColor:
+                                                        children: [
+                                                          Center(
+                                                            child: CircleAvatar(
+                                                              backgroundColor:
                                                               Color(0xffE3DFFD),
-                                                          radius: h * 0.09,
-                                                          foregroundImage: (Provider.of<
-                                                                              AddImage_Provider>(
-                                                                          context,
-                                                                          listen:
-                                                                              false)
-                                                                      .a1
-                                                                      .image !=
+                                                              radius: h * 0.09,
+                                                              foregroundImage: (Provider.of<
+                                                                  AddImage_Provider>(
+                                                                  context,
+                                                                  listen:
+                                                                  false)
+                                                                  .a1
+                                                                  .image !=
                                                                   null)
-                                                              ? FileImage(Provider.of<
-                                                                          AddImage_Provider>(
-                                                                      context,
-                                                                      listen:
-                                                                          true)
+                                                                  ? FileImage(Provider.of<
+                                                                  AddImage_Provider>(
+                                                                  context,
+                                                                  listen:
+                                                                  true)
                                                                   .a1
                                                                   .image as File)
-                                                              : null,
-                                                          child: IconButton(
+                                                                  : null,
+                                                              child: IconButton(
+                                                                onPressed: () {
+                                                                  showDialog(
+                                                                    context:
+                                                                    context,
+                                                                    builder:
+                                                                        (context) =>
+                                                                        AlertDialog(
+                                                                          title: Column(
+                                                                            children: [
+                                                                              Text(
+                                                                                "SELECT",
+                                                                                style:
+                                                                                TextStyle(
+                                                                                  color:
+                                                                                  Color(0xff5F264A),
+                                                                                ),
+                                                                              ),
+                                                                              SizedBox(
+                                                                                height:
+                                                                                20,
+                                                                              ),
+                                                                              Row(
+                                                                                children: [
+                                                                                  Expanded(
+                                                                                    child:
+                                                                                    ListTile(
+                                                                                      trailing: ElevatedButton(
+                                                                                        onPressed: () {
+                                                                                          Provider.of<AddImage_Provider>(context, listen: false).putImageForCamera();
+                                                                                          Navigator.of(context).pop();
+                                                                                        },
+                                                                                        child: Icon(
+                                                                                          Icons.camera_alt,
+                                                                                          color: Color(0xff5F264A),
+                                                                                        ),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                  Expanded(
+                                                                                    child:
+                                                                                    ListTile(
+                                                                                      trailing: ElevatedButton(
+                                                                                        onPressed: () {
+                                                                                          Provider.of<AddImage_Provider>(context, listen: false).putImageForGallery();
+                                                                                          Navigator.of(context).pop();
+                                                                                        },
+                                                                                        child: Icon(
+                                                                                          Icons.photo_album,
+                                                                                          color: Color(0xff5F264A),
+                                                                                        ),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                  );
+                                                                },
+                                                                icon: Icon(
+                                                                  Icons.add_a_photo,
+                                                                  color: Color(
+                                                                      0xff0E8388),
+                                                                  size: h * 0.055,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          SizedBox(
+                                                            height: h * 0.01,
+                                                          ),
+                                                          ElevatedButton(
                                                             onPressed: () {
                                                               showDialog(
-                                                                context:
-                                                                    context,
+                                                                context: context,
                                                                 builder:
                                                                     (context) =>
-                                                                        AlertDialog(
-                                                                  title: Column(
-                                                                    children: [
-                                                                      Text(
-                                                                        "SELECT",
-                                                                        style:
-                                                                            TextStyle(
-                                                                          color:
-                                                                              Color(0xff5F264A),
-                                                                        ),
-                                                                      ),
-                                                                      SizedBox(
-                                                                        height:
-                                                                            20,
-                                                                      ),
-                                                                      Row(
+                                                                    AlertDialog(
+                                                                      title: Column(
                                                                         children: [
-                                                                          Expanded(
-                                                                            child:
-                                                                                ListTile(
-                                                                              trailing: ElevatedButton(
-                                                                                onPressed: () {
-                                                                                  Provider.of<AddImage_Provider>(context, listen: false).putImageForCamera();
-                                                                                  Navigator.of(context).pop();
-                                                                                },
-                                                                                child: Icon(
-                                                                                  Icons.camera_alt,
-                                                                                  color: Color(0xff5F264A),
-                                                                                ),
-                                                                              ),
+                                                                          Text(
+                                                                            "SELECT",
+                                                                            style:
+                                                                            TextStyle(
+                                                                              color: Color(
+                                                                                  0xff5F264A),
                                                                             ),
                                                                           ),
-                                                                          Expanded(
-                                                                            child:
+                                                                          SizedBox(
+                                                                            height: 20,
+                                                                          ),
+                                                                          Row(
+                                                                            children: [
+                                                                              Expanded(
+                                                                                child:
                                                                                 ListTile(
-                                                                              trailing: ElevatedButton(
-                                                                                onPressed: () {
-                                                                                  Provider.of<AddImage_Provider>(context, listen: false).putImageForGallery();
-                                                                                  Navigator.of(context).pop();
-                                                                                },
-                                                                                child: Icon(
-                                                                                  Icons.photo_album,
-                                                                                  color: Color(0xff5F264A),
+                                                                                  trailing:
+                                                                                  ElevatedButton(
+                                                                                    onPressed:
+                                                                                        () {
+                                                                                      // ImagePicker picker =
+                                                                                      //     ImagePicker();
+                                                                                      // XFile? xFile =
+                                                                                      //     await picker.pickImage(
+                                                                                      //         source:
+                                                                                      //             ImageSource.camera);
+                                                                                      //
+                                                                                      // String path = xFile!.path;
+                                                                                      //
+                                                                                      // setState(() {
+                                                                                      //   image = File(path);
+                                                                                      // });
+                                                                                      Provider.of<AddImage_Provider>(context, listen: false).putImageForCamera();
+                                                                                      Navigator.of(context).pop();
+                                                                                    },
+                                                                                    child:
+                                                                                    Icon(
+                                                                                      Icons.camera_alt,
+                                                                                      color: Color(0xff5F264A),
+                                                                                    ),
+                                                                                  ),
                                                                                 ),
                                                                               ),
-                                                                            ),
+                                                                              Expanded(
+                                                                                child:
+                                                                                ListTile(
+                                                                                  trailing:
+                                                                                  ElevatedButton(
+                                                                                    onPressed:
+                                                                                        () {
+                                                                                      // ImagePicker picker =
+                                                                                      //     ImagePicker();
+                                                                                      // XFile? xFile =
+                                                                                      //     await picker.pickImage(
+                                                                                      //         source:
+                                                                                      //             ImageSource
+                                                                                      //                 .gallery);
+                                                                                      //
+                                                                                      // String path = xFile!.path;
+                                                                                      //
+                                                                                      // setState(() {
+                                                                                      //   image = File(path);
+                                                                                      // });
+                                                                                      Provider.of<AddImage_Provider>(context, listen: false).putImageForGallery();
+                                                                                      Navigator.of(context).pop();
+                                                                                    },
+                                                                                    child:
+                                                                                    Icon(
+                                                                                      Icons.photo_album,
+                                                                                      color: Color(0xff5F264A),
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ],
                                                                           ),
                                                                         ],
                                                                       ),
-                                                                    ],
-                                                                  ),
-                                                                ),
+                                                                    ),
                                                               );
                                                             },
-                                                            icon: Icon(
-                                                              Icons.add_a_photo,
-                                                              color: Color(
-                                                                  0xff0E8388),
-                                                              size: h * 0.055,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      SizedBox(
-                                                        height: h * 0.01,
-                                                      ),
-                                                      ElevatedButton(
-                                                        onPressed: () {
-                                                          showDialog(
-                                                            context: context,
-                                                            builder:
-                                                                (context) =>
-                                                                    AlertDialog(
-                                                              title: Column(
-                                                                children: [
-                                                                  Text(
-                                                                    "SELECT",
-                                                                    style:
-                                                                        TextStyle(
-                                                                      color: Color(
-                                                                          0xff5F264A),
-                                                                    ),
-                                                                  ),
-                                                                  SizedBox(
-                                                                    height: 20,
-                                                                  ),
-                                                                  Row(
-                                                                    children: [
-                                                                      Expanded(
-                                                                        child:
-                                                                            ListTile(
-                                                                          trailing:
-                                                                              ElevatedButton(
-                                                                            onPressed:
-                                                                                () {
-                                                                              // ImagePicker picker =
-                                                                              //     ImagePicker();
-                                                                              // XFile? xFile =
-                                                                              //     await picker.pickImage(
-                                                                              //         source:
-                                                                              //             ImageSource.camera);
-                                                                              //
-                                                                              // String path = xFile!.path;
-                                                                              //
-                                                                              // setState(() {
-                                                                              //   image = File(path);
-                                                                              // });
-                                                                              Provider.of<AddImage_Provider>(context, listen: false).putImageForCamera();
-                                                                              Navigator.of(context).pop();
-                                                                            },
-                                                                            child:
-                                                                                Icon(
-                                                                              Icons.camera_alt,
-                                                                              color: Color(0xff5F264A),
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                      Expanded(
-                                                                        child:
-                                                                            ListTile(
-                                                                          trailing:
-                                                                              ElevatedButton(
-                                                                            onPressed:
-                                                                                () {
-                                                                              // ImagePicker picker =
-                                                                              //     ImagePicker();
-                                                                              // XFile? xFile =
-                                                                              //     await picker.pickImage(
-                                                                              //         source:
-                                                                              //             ImageSource
-                                                                              //                 .gallery);
-                                                                              //
-                                                                              // String path = xFile!.path;
-                                                                              //
-                                                                              // setState(() {
-                                                                              //   image = File(path);
-                                                                              // });
-                                                                              Provider.of<AddImage_Provider>(context, listen: false).putImageForGallery();
-                                                                              Navigator.of(context).pop();
-                                                                            },
-                                                                            child:
-                                                                                Icon(
-                                                                              Icons.photo_album,
-                                                                              color: Color(0xff5F264A),
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                ],
+                                                            child: Text(
+                                                              "Add picture",
+                                                              style: TextStyle(
+                                                                color: Color(
+                                                                    0xff376ab9),
                                                               ),
                                                             ),
-                                                          );
-                                                        },
-                                                        child: Text(
-                                                          "Add picture",
-                                                          style: TextStyle(
-                                                            color: Color(
-                                                                0xff376ab9),
                                                           ),
-                                                        ),
-                                                      ),
-                                                      SizedBox(
-                                                        height: h * 0.03,
-                                                      ),
-                                                      TextFormField(
-                                                        controller:
+                                                          SizedBox(
+                                                            height: h * 0.03,
+                                                          ),
+                                                          TextFormField(
+                                                            controller:
                                                             FullNameController,
-                                                        cursorColor:
+                                                            cursorColor:
                                                             Colors.grey,
-                                                        textInputAction:
+                                                            textInputAction:
                                                             TextInputAction
                                                                 .next,
-                                                        validator: (val) {
-                                                          if (val!.isEmpty) {
-                                                            return "Please Enter First Name";
-                                                          } else {
-                                                            return null;
-                                                          }
-                                                        },
-                                                        onSaved: (v) {
-                                                          fullNameEdit = v;
-                                                        },
-                                                        decoration:
-                                                            InputDecoration(
-                                                          label: Text(
-                                                              "First Name"),
-                                                          labelStyle: TextStyle(
-                                                            color: (Provider.of<Theme_Provider>(
-                                                                            context)
-                                                                        .m1
-                                                                        .isDark ==
-                                                                    false)
-                                                                ? Colors.black
-                                                                : Colors.white,
-                                                          ),
-                                                          prefixIcon: Icon(Icons
-                                                              .person_2_outlined),
-                                                          enabledBorder:
-                                                              OutlineInputBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        10),
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: (Provider.of<Theme_Provider>(
-                                                                              context)
-                                                                          .m1
-                                                                          .isDark ==
-                                                                      false)
-                                                                  ? Colors.black
-                                                                  : Colors
-                                                                      .white,
-                                                            ),
-                                                          ),
-                                                          focusedBorder:
-                                                              OutlineInputBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        10),
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: Colors.blue
-                                                                  .shade800,
-                                                            ),
-                                                          ),
-                                                          errorBorder:
-                                                              OutlineInputBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        10),
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: Colors.red,
-                                                            ),
-                                                          ),
-                                                          focusedErrorBorder:
-                                                              OutlineInputBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        10),
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: Colors.red,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      SizedBox(
-                                                        height: h * 0.02,
-                                                      ),
-                                                      TextFormField(
-                                                        controller:
-                                                            PhoneNumberController,
-                                                        maxLength: 10,
-                                                        cursorColor:
-                                                            Colors.grey,
-                                                        textInputAction:
-                                                            TextInputAction
-                                                                .next,
-                                                        keyboardType:
-                                                            TextInputType
-                                                                .number,
-                                                        inputFormatters: [
-                                                          FilteringTextInputFormatter
-                                                              .digitsOnly,
-                                                        ],
-                                                        validator: (val) {
-                                                          if (val!.isEmpty) {
-                                                            return "Please Enter Phone Number";
-                                                          } else {
-                                                            return null;
-                                                          }
-                                                        },
-                                                        onSaved: (v) {
-                                                          phoneNumberEdit = v;
-                                                        },
-                                                        decoration:
-                                                            InputDecoration(
-                                                          label: Text(
-                                                              "Phone Number"),
-                                                          labelStyle: TextStyle(
-                                                            color: (Provider.of<Theme_Provider>(
-                                                                            context)
-                                                                        .m1
-                                                                        .isDark ==
-                                                                    false)
-                                                                ? Colors.black
-                                                                : Colors.white,
-                                                          ),
-                                                          prefixIcon:
-                                                              Icon(Icons.phone),
-                                                          enabledBorder:
-                                                              OutlineInputBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        10),
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: (Provider.of<Theme_Provider>(
-                                                                              context)
-                                                                          .m1
-                                                                          .isDark ==
-                                                                      false)
-                                                                  ? Colors.black
-                                                                  : Colors
-                                                                      .white,
-                                                            ),
-                                                          ),
-                                                          focusedBorder:
-                                                              OutlineInputBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        10),
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: Colors.blue
-                                                                  .shade800,
-                                                            ),
-                                                          ),
-                                                          errorBorder:
-                                                              OutlineInputBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        10),
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: Colors.red,
-                                                            ),
-                                                          ),
-                                                          focusedErrorBorder:
-                                                              OutlineInputBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        10),
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: Colors.red,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      SizedBox(
-                                                        height: h * 0.01,
-                                                      ),
-                                                      TextFormField(
-                                                        controller:
-                                                            ChatController,
-                                                        cursorColor:
-                                                            Colors.grey,
-                                                        textInputAction:
-                                                            TextInputAction
-                                                                .done,
-                                                        validator: (val) {
-                                                          if (val!.isEmpty) {
-                                                            return "Please Enter Chat Conversation";
-                                                          } else {
-                                                            return null;
-                                                          }
-                                                        },
-                                                        onSaved: (v) {
-                                                          chatEdit = v;
-                                                        },
-                                                        decoration:
-                                                            InputDecoration(
-                                                          label: Text(
-                                                              "Chat Conversation"),
-                                                          labelStyle: TextStyle(
-                                                            color: (Provider.of<Theme_Provider>(
-                                                                            context)
-                                                                        .m1
-                                                                        .isDark ==
-                                                                    false)
-                                                                ? Colors.black
-                                                                : Colors.white,
-                                                          ),
-                                                          prefixIcon: Icon(Icons
-                                                              .chat_outlined),
-                                                          enabledBorder:
-                                                              OutlineInputBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        10),
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: (Provider.of<Theme_Provider>(
-                                                                              context)
-                                                                          .m1
-                                                                          .isDark ==
-                                                                      false)
-                                                                  ? Colors.black
-                                                                  : Colors
-                                                                      .white,
-                                                            ),
-                                                          ),
-                                                          focusedBorder:
-                                                              OutlineInputBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        10),
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: Colors.blue
-                                                                  .shade800,
-                                                            ),
-                                                          ),
-                                                          errorBorder:
-                                                              OutlineInputBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        10),
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: Colors.red,
-                                                            ),
-                                                          ),
-                                                          focusedErrorBorder:
-                                                              OutlineInputBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        10),
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: Colors.red,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      SizedBox(
-                                                        height: h * 0.01,
-                                                      ),
-                                                      Row(
-                                                        children: [
-                                                          IconButton(
-                                                            onPressed:
-                                                                () async {
-                                                              DateTime? date =
-                                                                  await showDatePicker(
-                                                                context:
-                                                                    context,
-                                                                initialDate:
-                                                                    Date,
-                                                                firstDate:
-                                                                    DateTime(
-                                                                        2000),
-                                                                lastDate:
-                                                                    DateTime(
-                                                                        2024),
-                                                                cancelText:
-                                                                    "BACK",
-                                                                confirmText:
-                                                                    "CONTINUE",
-                                                                initialDatePickerMode:
-                                                                    DatePickerMode
-                                                                        .day,
-                                                                initialEntryMode:
-                                                                    DatePickerEntryMode
-                                                                        .calendarOnly,
-                                                                builder:
-                                                                    (context,
-                                                                        child) {
-                                                                  return Theme(
-                                                                    data: Theme.of(
-                                                                            context)
-                                                                        .copyWith(
-                                                                      colorScheme:
-                                                                          ColorScheme
-                                                                              .light(
-                                                                        primary:
-                                                                            Colors.amberAccent,
-                                                                        onPrimary:
-                                                                            Colors.redAccent,
-                                                                        onSurface:
-                                                                            Colors.blueAccent,
-                                                                      ),
-                                                                      textButtonTheme:
-                                                                          TextButtonThemeData(
-                                                                        style: TextButton
-                                                                            .styleFrom(
-                                                                          primary:
-                                                                              Colors.red, // button text color
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                    child:
-                                                                        child!,
-                                                                  );
-                                                                },
-                                                                // selectableDayPredicate: (day) {
-                                                                //   if(day.isAfter(DateTime.now().subtract(Duration(days: 1))) && day.isBefore(DateTime.now().add(Duration(days: 10)))){
-                                                                //     return true;
-                                                                //   }else {
-                                                                //     return false;
-                                                                //   }
-                                                                // }
-                                                              );
-
-                                                              setState(() {
-                                                                if (date !=
-                                                                    null) {
-                                                                  PickedDateEdit =
-                                                                      date;
-                                                                }
-                                                              });
-                                                            },
-                                                            icon: Icon(
-                                                              Icons
-                                                                  .calendar_month_rounded,
-                                                              size: h * 0.03,
-                                                            ),
-                                                          ),
-                                                          (PickedDateEdit !=
-                                                                  null)
-                                                              ? Text(
-                                                                  "${PickedDateEdit?.day} / ${PickedDateEdit?.month} / ${PickedDateEdit?.year}")
-                                                              : Text(
-                                                                  "Pick Date"),
-                                                        ],
-                                                      ),
-                                                      SizedBox(
-                                                        height: h * 0.01,
-                                                      ),
-                                                      Row(
-                                                        children: [
-                                                          IconButton(
-                                                            onPressed:
-                                                                () async {
-                                                              time =
-                                                                  await showTimePicker(
-                                                                context:
-                                                                    context,
-                                                                initialTime:
-                                                                    TimeEdit,
-                                                              );
-
-                                                              if (time !=
-                                                                  null) {
-                                                                setState(() {
-                                                                  TimeEdit =
-                                                                      time!;
-                                                                });
+                                                            validator: (val) {
+                                                              if (val!.isEmpty) {
+                                                                return "Please Enter First Name";
+                                                              } else {
+                                                                return null;
                                                               }
                                                             },
-                                                            icon: Icon(
-                                                              Icons
-                                                                  .watch_later_outlined,
-                                                              size: h * 0.03,
+                                                            onSaved: (v) {
+                                                              fullNameEdit = v;
+                                                            },
+                                                            decoration:
+                                                            InputDecoration(
+                                                              label: Text(
+                                                                  "First Name"),
+                                                              labelStyle: TextStyle(
+                                                                color: (Provider.of<Theme_Provider>(
+                                                                    context)
+                                                                    .m1
+                                                                    .isDark ==
+                                                                    false)
+                                                                    ? Colors.black
+                                                                    : Colors.white,
+                                                              ),
+                                                              prefixIcon: Icon(Icons
+                                                                  .person_2_outlined),
+                                                              enabledBorder:
+                                                              OutlineInputBorder(
+                                                                borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                    10),
+                                                                borderSide:
+                                                                BorderSide(
+                                                                  color: (Provider.of<Theme_Provider>(
+                                                                      context)
+                                                                      .m1
+                                                                      .isDark ==
+                                                                      false)
+                                                                      ? Colors.black
+                                                                      : Colors
+                                                                      .white,
+                                                                ),
+                                                              ),
+                                                              focusedBorder:
+                                                              OutlineInputBorder(
+                                                                borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                    10),
+                                                                borderSide:
+                                                                BorderSide(
+                                                                  color: Colors.blue
+                                                                      .shade800,
+                                                                ),
+                                                              ),
+                                                              errorBorder:
+                                                              OutlineInputBorder(
+                                                                borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                    10),
+                                                                borderSide:
+                                                                BorderSide(
+                                                                  color: Colors.red,
+                                                                ),
+                                                              ),
+                                                              focusedErrorBorder:
+                                                              OutlineInputBorder(
+                                                                borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                    10),
+                                                                borderSide:
+                                                                BorderSide(
+                                                                  color: Colors.red,
+                                                                ),
+                                                              ),
                                                             ),
                                                           ),
-                                                          (time != null)
-                                                              ? (TimeEdit.periodOffset ==
-                                                                      0)
+                                                          SizedBox(
+                                                            height: h * 0.02,
+                                                          ),
+                                                          TextFormField(
+                                                            controller:
+                                                            PhoneNumberController,
+                                                            maxLength: 10,
+                                                            cursorColor:
+                                                            Colors.grey,
+                                                            textInputAction:
+                                                            TextInputAction
+                                                                .next,
+                                                            keyboardType:
+                                                            TextInputType
+                                                                .number,
+                                                            inputFormatters: [
+                                                              FilteringTextInputFormatter
+                                                                  .digitsOnly,
+                                                            ],
+                                                            validator: (val) {
+                                                              if (val!.isEmpty) {
+                                                                return "Please Enter Phone Number";
+                                                              } else {
+                                                                return null;
+                                                              }
+                                                            },
+                                                            onSaved: (v) {
+                                                              phoneNumberEdit = v;
+                                                            },
+                                                            decoration:
+                                                            InputDecoration(
+                                                              label: Text(
+                                                                  "Phone Number"),
+                                                              labelStyle: TextStyle(
+                                                                color: (Provider.of<Theme_Provider>(
+                                                                    context)
+                                                                    .m1
+                                                                    .isDark ==
+                                                                    false)
+                                                                    ? Colors.black
+                                                                    : Colors.white,
+                                                              ),
+                                                              prefixIcon:
+                                                              Icon(Icons.phone),
+                                                              enabledBorder:
+                                                              OutlineInputBorder(
+                                                                borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                    10),
+                                                                borderSide:
+                                                                BorderSide(
+                                                                  color: (Provider.of<Theme_Provider>(
+                                                                      context)
+                                                                      .m1
+                                                                      .isDark ==
+                                                                      false)
+                                                                      ? Colors.black
+                                                                      : Colors
+                                                                      .white,
+                                                                ),
+                                                              ),
+                                                              focusedBorder:
+                                                              OutlineInputBorder(
+                                                                borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                    10),
+                                                                borderSide:
+                                                                BorderSide(
+                                                                  color: Colors.blue
+                                                                      .shade800,
+                                                                ),
+                                                              ),
+                                                              errorBorder:
+                                                              OutlineInputBorder(
+                                                                borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                    10),
+                                                                borderSide:
+                                                                BorderSide(
+                                                                  color: Colors.red,
+                                                                ),
+                                                              ),
+                                                              focusedErrorBorder:
+                                                              OutlineInputBorder(
+                                                                borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                    10),
+                                                                borderSide:
+                                                                BorderSide(
+                                                                  color: Colors.red,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          SizedBox(
+                                                            height: h * 0.01,
+                                                          ),
+                                                          TextFormField(
+                                                            controller:
+                                                            ChatController,
+                                                            cursorColor:
+                                                            Colors.grey,
+                                                            textInputAction:
+                                                            TextInputAction
+                                                                .done,
+                                                            validator: (val) {
+                                                              if (val!.isEmpty) {
+                                                                return "Please Enter Chat Conversation";
+                                                              } else {
+                                                                return null;
+                                                              }
+                                                            },
+                                                            onSaved: (v) {
+                                                              chatEdit = v;
+                                                            },
+                                                            decoration:
+                                                            InputDecoration(
+                                                              label: Text(
+                                                                  "Chat Conversation"),
+                                                              labelStyle: TextStyle(
+                                                                color: (Provider.of<Theme_Provider>(
+                                                                    context)
+                                                                    .m1
+                                                                    .isDark ==
+                                                                    false)
+                                                                    ? Colors.black
+                                                                    : Colors.white,
+                                                              ),
+                                                              prefixIcon: Icon(Icons
+                                                                  .chat_outlined),
+                                                              enabledBorder:
+                                                              OutlineInputBorder(
+                                                                borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                    10),
+                                                                borderSide:
+                                                                BorderSide(
+                                                                  color: (Provider.of<Theme_Provider>(
+                                                                      context)
+                                                                      .m1
+                                                                      .isDark ==
+                                                                      false)
+                                                                      ? Colors.black
+                                                                      : Colors
+                                                                      .white,
+                                                                ),
+                                                              ),
+                                                              focusedBorder:
+                                                              OutlineInputBorder(
+                                                                borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                    10),
+                                                                borderSide:
+                                                                BorderSide(
+                                                                  color: Colors.blue
+                                                                      .shade800,
+                                                                ),
+                                                              ),
+                                                              errorBorder:
+                                                              OutlineInputBorder(
+                                                                borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                    10),
+                                                                borderSide:
+                                                                BorderSide(
+                                                                  color: Colors.red,
+                                                                ),
+                                                              ),
+                                                              focusedErrorBorder:
+                                                              OutlineInputBorder(
+                                                                borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                    10),
+                                                                borderSide:
+                                                                BorderSide(
+                                                                  color: Colors.red,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          SizedBox(
+                                                            height: h * 0.01,
+                                                          ),
+                                                          Row(
+                                                            children: [
+                                                              IconButton(
+                                                                onPressed:
+                                                                    () async {
+                                                                  DateTime? date =
+                                                                  await showDatePicker(
+                                                                    context:
+                                                                    context,
+                                                                    initialDate:
+                                                                    Date,
+                                                                    firstDate:
+                                                                    DateTime(
+                                                                        2000),
+                                                                    lastDate:
+                                                                    DateTime(
+                                                                        2024),
+                                                                    cancelText:
+                                                                    "BACK",
+                                                                    confirmText:
+                                                                    "CONTINUE",
+                                                                    initialDatePickerMode:
+                                                                    DatePickerMode
+                                                                        .day,
+                                                                    initialEntryMode:
+                                                                    DatePickerEntryMode
+                                                                        .calendarOnly,
+                                                                    builder:
+                                                                        (context,
+                                                                        child) {
+                                                                      return Theme(
+                                                                        data: Theme.of(
+                                                                            context)
+                                                                            .copyWith(
+                                                                          colorScheme:
+                                                                          ColorScheme
+                                                                              .light(
+                                                                            primary:
+                                                                            Colors.amberAccent,
+                                                                            onPrimary:
+                                                                            Colors.redAccent,
+                                                                            onSurface:
+                                                                            Colors.blueAccent,
+                                                                          ),
+                                                                          textButtonTheme:
+                                                                          TextButtonThemeData(
+                                                                            style: TextButton
+                                                                                .styleFrom(
+                                                                              primary:
+                                                                              Colors.red, // button text color
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                        child:
+                                                                        child!,
+                                                                      );
+                                                                    },
+                                                                    // selectableDayPredicate: (day) {
+                                                                    //   if(day.isAfter(DateTime.now().subtract(Duration(days: 1))) && day.isBefore(DateTime.now().add(Duration(days: 10)))){
+                                                                    //     return true;
+                                                                    //   }else {
+                                                                    //     return false;
+                                                                    //   }
+                                                                    // }
+                                                                  );
+
+                                                                  setState(() {
+                                                                    if (date !=
+                                                                        null) {
+                                                                      PickedDateEdit =
+                                                                          date;
+                                                                    }
+                                                                  });
+                                                                },
+                                                                icon: Icon(
+                                                                  Icons
+                                                                      .calendar_month_rounded,
+                                                                  size: h * 0.03,
+                                                                ),
+                                                              ),
+                                                              (PickedDateEdit !=
+                                                                  null)
                                                                   ? Text(
-                                                                      "${TimeEdit.hour} : ${TimeEdit.minute}  ${TimeEdit.period.name}")
+                                                                  "${PickedDateEdit?.day} / ${PickedDateEdit?.month} / ${PickedDateEdit?.year}")
+                                                                  : Text(
+                                                                  "Pick Date"),
+                                                            ],
+                                                          ),
+                                                          SizedBox(
+                                                            height: h * 0.01,
+                                                          ),
+                                                          Row(
+                                                            children: [
+                                                              IconButton(
+                                                                onPressed:
+                                                                    () async {
+                                                                  time =
+                                                                  await showTimePicker(
+                                                                    context:
+                                                                    context,
+                                                                    initialTime:
+                                                                    TimeEdit,
+                                                                  );
+
+                                                                  if (time !=
+                                                                      null) {
+                                                                    setState(() {
+                                                                      TimeEdit =
+                                                                      time!;
+                                                                    });
+                                                                  }
+                                                                },
+                                                                icon: Icon(
+                                                                  Icons
+                                                                      .watch_later_outlined,
+                                                                  size: h * 0.03,
+                                                                ),
+                                                              ),
+                                                              (time != null)
+                                                                  ? (TimeEdit.periodOffset ==
+                                                                  0)
+                                                                  ? Text(
+                                                                  "${TimeEdit.hour} : ${TimeEdit.minute}  ${TimeEdit.period.name}")
                                                                   : (Time.hour >
-                                                                          12)
-                                                                      ? Text(
-                                                                          "${TimeEdit.hour - 12} : ${TimeEdit.minute}  ${TimeEdit.period.name}")
-                                                                      : Text(
-                                                                          "${TimeEdit.hour} : ${TimeEdit.minute}  ${TimeEdit.period.name}")
-                                                              : Text(
+                                                                  12)
+                                                                  ? Text(
+                                                                  "${TimeEdit.hour - 12} : ${TimeEdit.minute}  ${TimeEdit.period.name}")
+                                                                  : Text(
+                                                                  "${TimeEdit.hour} : ${TimeEdit.minute}  ${TimeEdit.period.name}")
+                                                                  : Text(
                                                                   "Pick Time"),
+                                                            ],
+                                                          ),
+                                                          OutlinedButton(
+                                                            onPressed: () {
+                                                              if (FormKey
+                                                                  .currentState!
+                                                                  .validate()) {
+                                                                FormKey
+                                                                    .currentState!
+                                                                    .save();
+                                                                Provider.of<AddPageValue_Provider>(
+                                                                    context,
+                                                                    listen:
+                                                                    false)
+                                                                    .EditValue(i);
+
+                                                                FullNameController
+                                                                    .clear();
+                                                                PhoneNumberController
+                                                                    .clear();
+                                                                ChatController
+                                                                    .clear();
+                                                                PickedDateEdit =
+                                                                null;
+                                                                time = null;
+                                                                Provider.of<AddImage_Provider>(
+                                                                    context,
+                                                                    listen:
+                                                                    false)
+                                                                    .ClearImage();
+                                                                Navigator.of(
+                                                                    context)
+                                                                    .pop();
+                                                                Navigator.of(
+                                                                    context)
+                                                                    .pop();
+                                                              }
+                                                            },
+                                                            child: Text("Save"),
+                                                          ),
                                                         ],
                                                       ),
-                                                      OutlinedButton(
-                                                        onPressed: () {
-                                                          if (FormKey
-                                                              .currentState!
-                                                              .validate()) {
-                                                            FormKey
-                                                                .currentState!
-                                                                .save();
-                                                            Provider.of<AddPageValue_Provider>(
-                                                                    context,
-                                                                    listen:
-                                                                        false)
-                                                                .EditValue(i);
-
-                                                            FullNameController
-                                                                .clear();
-                                                            PhoneNumberController
-                                                                .clear();
-                                                            ChatController
-                                                                .clear();
-                                                            PickedDateEdit =
-                                                                null;
-                                                            time = null;
-                                                            Provider.of<AddImage_Provider>(
-                                                                    context,
-                                                                    listen:
-                                                                        false)
-                                                                .ClearImage();
-                                                            Navigator.of(
-                                                                    context)
-                                                                .pop();
-                                                            Navigator.of(
-                                                                    context)
-                                                                .pop();
-                                                          }
-                                                        },
-                                                        child: Text("Save"),
-                                                      ),
-                                                    ],
+                                                    ),
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                          ),
                                         ),
                                       );
                                     },
-                                    icon: Icon(Icons.edit),
+                                    icon: Icon(Icons.edit,color: Colors.black,),
                                   ),
                                   IconButton(
                                     onPressed: () {
                                       Provider.of<AddPageValue_Provider>(
-                                              context,
-                                              listen: false)
+                                          context,
+                                          listen: false)
                                           .ClearValue(i);
                                       Navigator.of(context).pop();
                                     },
-                                    icon: Icon(Icons.delete),
+                                    icon: Icon(Icons.delete,color: Colors.black,),
                                   ),
                                 ],
                               ),
@@ -1549,6 +1551,7 @@ class _ChatsComponetState extends State<ChatsComponet> {
                               ),
                             ],
                           ),
+                        ),
                         ),
                       );
                     },
