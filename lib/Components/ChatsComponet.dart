@@ -73,32 +73,7 @@ class _ChatsComponetState extends State<ChatsComponet> {
                   padding: const EdgeInsets.all(10),
                   child: ListTile(
                     onTap: () {
-                      showModalBottomSheet(
-                        context: context,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.vertical(
-                            top: Radius.circular(50),
-                          ),
-                        ),
-                        builder: (context) => Container(
-                          height: h,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(50),
-                              topRight: Radius.circular(50),
-                            ),
-                          ),
-                          alignment: Alignment.center,
-                          child: Text(
-                            "Show Model Bottom Sheet",
-                            style: TextStyle(
-                              fontSize: h * 0.03,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      );
+
                     },
                     leading: Transform.scale(
                       scale: 1.6,
