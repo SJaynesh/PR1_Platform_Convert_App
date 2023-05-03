@@ -36,9 +36,9 @@ class _ChatsComponetState extends State<ChatsComponet> {
             ? Container(
                 alignment: Alignment.center,
                 child: Text(
-                  "CHATS PAGE ",
+                  "No Contact... ",
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: h * 0.03,
                   ),
                 ),
               )
@@ -769,9 +769,9 @@ class _ChatsComponetState extends State<ChatsComponet> {
             ? Container(
                 alignment: Alignment.center,
                 child: Text(
-                  "CHATS PAGE ",
+                  "No Contact...",
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: h * 0.03,
                   ),
                 ),
               )
