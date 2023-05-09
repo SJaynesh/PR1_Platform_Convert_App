@@ -808,13 +808,7 @@ class _ChatsComponetState extends State<ChatsComponet> {
                             children: [
                               CircleAvatar(
                                 radius: h * 0.07,
-                                foregroundImage: (Provider.of<
-                                    AddPageValue_Provider>(
-                                    context,
-                                    listen: false)
-                                    .M1
-                                    .Images !=
-                                    null)
+                                foregroundImage: (Provider.of<AddPageValue_Provider>(context, listen: false).M1.Images != null)
                                     ? FileImage(
                                   File(Provider.of<AddPageValue_Provider>(
                                       context,
@@ -1525,10 +1519,7 @@ class _ChatsComponetState extends State<ChatsComponet> {
                                   ),
                                   IconButton(
                                     onPressed: () {
-                                      Provider.of<AddPageValue_Provider>(
-                                          context,
-                                          listen: false)
-                                          .ClearValue(i);
+                                      Provider.of<AddPageValue_Provider>(context, listen: false).ClearValue(i);
                                       Navigator.of(context).pop();
                                     },
                                     icon: Icon(Icons.delete,color: Colors.black,),

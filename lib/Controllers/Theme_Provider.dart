@@ -4,7 +4,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class Theme_Provider extends ChangeNotifier {
 
-  int index = 0;
   Theme_Model m1;
 
   Theme_Provider({required this.m1});

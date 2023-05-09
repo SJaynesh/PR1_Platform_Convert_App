@@ -38,6 +38,7 @@ class AddPageValue_Provider extends ChangeNotifier {
   }
   
   ClearValue(int i) async{
+
     FullName.remove(FullName[i]);
     PhoneNumber.remove(PhoneNumber[i]);
     Chats.remove(Chats[i]);
