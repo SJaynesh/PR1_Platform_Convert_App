@@ -398,8 +398,7 @@ class _SettingComponetState extends State<SettingComponet> {
                                                       context,
                                                       listen: false)
                                                   .I1
-                                                  .image !=
-                                              null)
+                                                  .image != null)
                                           ? FileImage(
                                               Provider.of<ImagePicker_Provider>(
                                                       context,
